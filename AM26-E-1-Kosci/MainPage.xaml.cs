@@ -3,15 +3,19 @@
     public partial class MainPage : ContentPage
     {
         int[] dices = [0, 0, 0, 0, 0];
+        int gameScore = 0;
+        int rollScore = 0;
 
         public MainPage()
         {
             InitializeComponent();
-            DisplayDices();
+            Display();
         }
 
-        private void DisplayDices()
+        private void Display()
         {
+            DicesStack.Children.Clear();
+
             foreach (int dice in dices) 
             {
                 string imgPath = "";
@@ -27,6 +31,9 @@
                 diceImg.Source = imgPath;
                 DicesStack.Children.Add(diceImg);
             }
+
+            RollScoreLabel.Text = rollScore.ToString();
+            GameScoreLabel.Text = gameScore.ToString();
         }
 
         private void RollButton_Clicked(object sender, EventArgs e)
@@ -36,7 +43,15 @@
 
         private void ResetButton_Clicked(object sender, EventArgs e)
         {
+            gameScore = 0;
+            rollScore = 0;
 
+            for (int i = 0; i < dices.Length; i++)
+            {
+                dices[i] = 0;
+            }
+
+            Display();
         }
     }
 }
