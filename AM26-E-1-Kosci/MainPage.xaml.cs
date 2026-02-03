@@ -24,6 +24,9 @@
                     case 0:
                         imgPath = "question.jpg";
                         break;
+                    default:
+                        imgPath = "k" + dice.ToString() + ".jpg";
+                        break;
                 }
 
                 Image diceImg = new Image();
@@ -32,13 +35,23 @@
                 DicesStack.Children.Add(diceImg);
             }
 
-            RollScoreLabel.Text = rollScore.ToString();
-            GameScoreLabel.Text = gameScore.ToString();
+            RollScoreLabel.Text = "Wynik tego losowania: " + rollScore.ToString();
+            GameScoreLabel.Text = "Wynik gry:" + gameScore.ToString();
         }
 
         private void RollButton_Clicked(object sender, EventArgs e)
         {
+            rollScore = 0;
+            for (int i = 0; i < dices.Length; i++)
+            {
+                Random rand = new Random();
+                int roll = rand.Next(1, 7);
+                dices[i] = roll;
+                rollScore += roll;
+            }   
 
+            gameScore += rollScore;
+            Display();
         }
 
         private void ResetButton_Clicked(object sender, EventArgs e)
