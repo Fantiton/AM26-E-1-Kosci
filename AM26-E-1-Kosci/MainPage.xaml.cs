@@ -31,6 +31,7 @@
                 }
 
                 Image diceImg = new Image();
+                diceImg.WidthRequest = (540 / 5) - 20;
                 diceImg.Margin = 10;
                 diceImg.Source = imgPath;
                 DicesStack.Children.Add(diceImg);
