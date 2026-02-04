@@ -5,6 +5,7 @@
         int[] dices = [0, 0, 0, 0, 0];
         int gameScore = 0;
         int rollScore = 0;
+        Random rand = new Random();
 
         public MainPage()
         {
@@ -44,11 +45,26 @@
             rollScore = 0;
             for (int i = 0; i < dices.Length; i++)
             {
-                Random rand = new Random();
                 int roll = rand.Next(1, 7);
                 dices[i] = roll;
-                rollScore += roll;
-            }   
+            }
+
+            foreach (int dice in dices)
+            {
+                int count = 0;
+                for (int i = 0; i < dices.Length; i++)
+                {
+                    if (dices[i] == dice)
+                    {
+                        count++;
+                    }
+                }
+
+                if(count > 1)
+                {
+                    rollScore += dice;
+                }
+            }
 
             gameScore += rollScore;
             Display();

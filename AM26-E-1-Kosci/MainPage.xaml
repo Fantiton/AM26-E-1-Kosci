@@ -8,6 +8,7 @@
 
     <ScrollView>
         <VerticalStackLayout
+            Padding="0"
             Margin="0,20"
             Spacing="25">
             <Label Text="Gra w kości. Autor 21376769"
@@ -28,17 +29,18 @@
                                    Padding="0"
                                    Margin="0"
                                    HeightRequest="100"
-                                   WidthRequest="540"
                                    BackgroundColor="White"
                                    HorizontalOptions="Center">
             </HorizontalStackLayout>
             <Label x:Name="RollScoreLabel"
                    Text="Wynik tego losowania: 0"
-                   HeightRequest="40">
+                   HeightRequest="40"
+                   HorizontalTextAlignment="Center">
             </Label>
             <Label x:Name="GameScoreLabel"
                    Text="Wynik gry: 0"
-                   HeightRequest="40">
+                   HeightRequest="40"
+                   HorizontalTextAlignment="Center">
             </Label>
             <Button x:Name="ResetButton"
                     BackgroundColor="#D2691E"
