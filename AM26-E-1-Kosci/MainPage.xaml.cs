@@ -64,7 +64,7 @@
                 {
                     rollScore += dice;
                 }
-            }
+            }// Mango mango 67 muuusztarda!
 
             gameScore += rollScore;
             Display();
